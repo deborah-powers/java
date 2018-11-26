@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+	<endpoint
+		name="converter"
+		implementation="models.Converter"
+		url-pattern="/converter"
+	></endpoint>
+</endpoints>

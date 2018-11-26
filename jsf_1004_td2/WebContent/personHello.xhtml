@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Hello World</title>
+	<style type="text/css">
+		.header { color: red; }
+		.skills { color: blue; }
+		.r1 { color: green; }
+		.c2 { background-color: lightblue; }
+	</style>
+</h:head>
+<body>
+	<h:form id="main">
+		<h:messages showSummary="true" showDetail="false" />
+		<h:outputText value="Hello World" styleClass="header" />
+		<h:panelGrid columns="2" bgcolor="pink">
+			<h:outputText value="Your Name" />
+			<h:inputText id="personName" value="#{personBean.name}" required="true" onchange="submit">
+				<f:valueChangeListener type="exo2.PersonVCL"></f:valueChangeListener>
+			</h:inputText>
+			<h:outputText value="Your Age" /><h:inputText id="personAge" value="#{personBean.age}" />
+		</h:panelGrid>
+		<h:commandButton value="Say Hello" action="#{personBean.sayHello}" />
+		<br/>
+		<h:outputText value="#{personBean.helloText}" />
+		<h:commandButton value="retourner à l'acceuil" action="personHome" />
+	</h:form>
+
+	<h:dataTable value="#{personBean.skillList}" var="skill" styleClass="skills" columnClasses="c1,c2" rowClasses="r1,r2,r3">
+		<h:column>
+			<f:facet name="header"><h:outputText value="skill name" /></f:facet>
+			<h:form id="linkSkill"><h:commandLink action="#{detailsBean.selectSkill(skill)}" value="#{skill.name}" /></h:form>
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="skill level" /></f:facet>
+			<h:outputText value="#{skill.level}" />
+		</h:column>
+	</h:dataTable>
+
+	<h:panelGrid columns="2" bgcolor="lightgreen">
+		<h:outputText value="Skill Name" /><h:inputText id="skillName" value="#{personBean.details.selectedSkill.name}" required="true" />
+		<h:outputText value="Skill Level" /><h:inputText id="skillLevel" value="#{personBean.details.selectedSkill.level}" />
+	</h:panelGrid>
+</body>
+</html>

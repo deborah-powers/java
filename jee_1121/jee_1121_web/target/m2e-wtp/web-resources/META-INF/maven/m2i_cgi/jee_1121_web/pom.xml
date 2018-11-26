@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>m2i_cgi</groupId>
+		<artifactId>jee_1121</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>jee_1121_web</artifactId>
+	<packaging>war</packaging>
+	<properties>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>m2i_cgi</groupId>
+			<artifactId>jee_1121_ejb</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope> <!-- la partie EJB prise en charge par le serveur JEE sera fournie au coté web -->
+		</dependency>
+	</dependencies>
+</project>

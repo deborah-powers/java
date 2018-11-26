@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Calculatrice</title>
+</h:head> 
+<body> 
+	<h:form>
+		<p>
+			<span>Nombre 1</span>
+			<h:inputText value="#{calcul.nb1}"/>
+		</p>
+		<p>
+			<span>Nombre 2</span>
+			<h:inputText value="#{calcul.nb2}"/>
+		</p>
+		<h:commandButton value="additionner" action="#{calcul.add()}"/>
+		<h:commandButton value="soustraire" action="#{calcul.sub()}"/>
+		<h:commandButton value="multiplier" action="#{calcul.mul()}"/>
+		<h:commandButton value="diviser" action="#{calcul.divide()}"/>
+	</h:form>
+	<h1>résultat: #{calcul.res}</h1>
+</body> 
+</html>

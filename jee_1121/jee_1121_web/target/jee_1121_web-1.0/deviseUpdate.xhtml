@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<!-- 
+		Replace path to template, title, header and body
+		with actual data.
+	 -->
+<head>
+<title>Convertisseur</title>
+</head>
+<body>
+	<h:form>
+	<!-- les dièses sont associés à jsf. deviseMB est le nom logique de la classe DeviseMB -->
+		<p>
+			Montant en euro:
+			<h:inputText value="#{deviseMB.montantEuro}" />
+		</p>
+		<h:commandButton action="#{deviseMB.convertEuroToFranc}" value="Convertir" />
+	</h:form>
+	<p>
+		Montant en franc:
+		<h:outputText value="#{deviseMB.montantFranc}" />
+	</p>
+</body>
+</html>

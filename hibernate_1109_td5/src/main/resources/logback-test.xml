@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<logger name="org.springframework" level="ERROR" />
+	<logger name="org.hibernate" level="ERROR" />
+	<logger name="hibernate_1109_td5" level="ERROR" />
+</configuration>

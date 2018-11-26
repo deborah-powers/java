@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>jsf 3</title>
+	<style type="text/css">
+		.table { color: blue; }
+		.r1 { color: green; }
+		.c2 { background-color: lightblue; }
+	</style>
+</h:head>
+<body>
+	<h:dataTable value="#{users.userList}" var="user" styleClass="table" columnClasses="c1,c2" rowClasses="r1,r2,r3">
+		<h:column>
+			<f:facet name="header"><h:outputText value="prénom" /></f:facet>
+			<h:form><h:commandLink action="#{users.selectUser(user)}" value="#{user.prenom}" /></h:form>
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="nom" /></f:facet>
+			<h:outputText value="#{user.nom}" />
+		</h:column>
+	</h:dataTable>
+	<h:panelGrid columns="2" bgcolor="lightgreen">
+		<f:facet name="header"><h:outputText value="utilisateur" /></f:facet>
+		<h:outputText value="identifiant" /><h:inputText value="#{users.selectedUser.id}" required="true" />
+		<h:outputText value="nom" /><h:inputText value="#{users.selectedUser.nom}" required="true" />
+		<h:outputText value="prénom" /><h:inputText value="#{users.selectedUser.prenom}" required="true" />
+		<h:outputText value="login" /><h:inputText value="#{users.selectedUser.login}" required="true" />
+		<h:outputText value="email" /><h:inputText value="#{users.selectedUser.email}" required="true" />
+		<h:outputText value="profil" /><h:inputText value="#{users.selectedUser.profil}" required="true" />
+	</h:panelGrid>
+</body>
+</html>

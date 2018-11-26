@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>call http</title>
+	<meta name='viewport' content='width=device-width,initial-scale=1' />
+	<meta charset='utf-8' />
+	<script type='text/javascript' src='httpCall/jquery-3.3.1.min.js'></script>
+	<script type='text/javascript' src='httpCall/jquery.cookie.js'></script>
+	<script type='text/javascript' src='httpCall/my-jq-ajax-util.js'></script>
+	<script type='text/javascript' src='httpCall/httpCall.js'></script>
+</head>
+<body>
+	<h3>JSON tests for devise app (REST/JSON via spring)</h3>
+	<a href="./restApp/devise/eur"> devises avec code=EUR </a>
+	  <hr/>
+	  code : <span id="spanCode" ></span><br/>
+	  monnaie : <input id="txtName" type='text' /><br/>
+	  change : <input id="txtExchangeRate" type='text' /><br/>
+	  <input type='button' value="update devise" id="btnUpdate"/> <br/>
+	  <span id="spanMsg"></span>
+</body>
+</html>

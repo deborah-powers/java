@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>test de filtre 1</display-name>
+
+  <servlet>
+    <servlet-name>ServletLogin</servlet-name>
+    <servlet-class>testFiltre.ServletLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletLogin</servlet-name>
+    <url-pattern>/ServletLogin</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+  	<filter-name>FilterLogin</filter-name>
+    <filter-class>testFiltre.FilterLogin</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>FilterLogin</filter-name>
+    <url-pattern>/ServletLogin</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>FilterHtml</filter-name>
+    <filter-class>testFiltre.FilterHtml</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FilterHtml</filter-name>
+    <url-pattern>/ServletLogin</url-pattern>
+  </filter-mapping>
+</web-app>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>jsf 3</title>
+	<style type="text/css">
+		.personInfo { background-color: lightblue; }
+	</style>
+</h:head>
+<body>
+	<h:form>
+		<h:panelGrid columns="2" styleClass="personInfo">
+			<f:facet name="header"><h:outputText value="utilisateur" /></f:facet>
+			<h:outputText value="identifiant" /><h:inputText value="#{users.selectedUser.id}" required="true" />
+			<h:outputText value="prénom" /><h:inputText value="#{users.selectedUser.prenom}" required="true" />
+			<h:outputText value="nom" /><h:inputText value="#{users.selectedUser.nom}" required="true" />
+			<h:outputText value="login" /><h:inputText value="#{users.selectedUser.login}" required="true" />
+			<h:outputText value="email" /><h:inputText value="#{users.selectedUser.email}" required="true" />
+			<h:outputText value="profil" /><h:inputText value="#{users.selectedUser.profil}" required="true" />
+		</h:panelGrid>
+		<h:commandButton value="re-choisir" action="userList?faces-redirect=true" />
+	</h:form>
+</body>
+</html>
