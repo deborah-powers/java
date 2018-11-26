@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h1>Inscription</h1>
+	<h:form>
+		<h:inputHidden value="#{service.customer.id}"/>
+		<h:outputLabel value="Lastname">
+			<h:inputText value="#{service.lastname}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Firstname">
+			<h:inputText value="#{service.firstname}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Password">
+			<h:inputText value="#{service.password}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Email">
+			<h:inputText value="#{service.email}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Login">
+			<h:inputText value="#{service.login}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Telephone">
+			<h:inputText value="#{service.telephone}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="City">
+			<h:inputText value="#{service.city}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Street">
+			<h:inputText value="#{service.street}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Zip code">
+			<h:inputText value="#{service.zipCode}" />
+		</h:outputLabel>
+		<br/>
+		<h:outputLabel value="Country">
+			<h:inputText value="#{service.country}" />
+		</h:outputLabel>
+		<br/>
+		<h:commandButton value="Add" action="#{service.add()}"/>
+		<h:commandButton value="Add" action="#{service.update(service.customer)}"/>
+	</h:form>
+</body> 
+</html>

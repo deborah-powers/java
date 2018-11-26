@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head><title>titre de page</title></h:head> 
+<h:body> 
+<h2>Catégories</h2>
+<h:dataTable  value="#{categoryService.categorys}" var="category">
+<h:form><h:commandButton action="#{categoryService.add()}" value="Ajouter" /></h:form>
+	<h:column>
+		<f:facet name="header">Id</f:facet>
+			#{category.id}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Name</f:facet>
+			#{category.name}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Actions</f:facet>
+		<h:form>
+			<h:commandButton action="#{categoryService.delete(category.id)}" value="Supprimer" />
+			<h:commandButton action="#{categoryService.update(category.id)}" value="Modifier" />
+		</h:form>
+	</h:column>
+</h:dataTable>
+<hr/>
+<h2>Produits</h2>
+<h:dataTable  value="#productService.categorys}" var="product">
+<h:form><h:commandButton action="#{productService.add()}" value="Ajouter" /></h:form>
+	<h:column>
+		<f:facet name="header">Id</f:facet>
+			#{product.id}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Name</f:facet>
+			#{product.name}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Description</f:facet>
+			#{product.decription}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Catégorie</f:facet>
+			#{product.category.name}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Actions</f:facet>
+		<h:form>
+			<h:commandButton action="#{productService.delete(category.id)}" value="Supprimer" />
+			<h:commandButton action="#{productService.update(category.id)}" value="Modifier" />
+		</h:form>
+	</h:column>
+</h:dataTable>
+<hr/>
+<h2>Articles</h2>
+<h:dataTable  value="#itemService.categorys}" var="item">
+<h:form><h:commandButton action="#{itemService.add()}" value="Ajouter" /></h:form>
+	<h:column>
+		<f:facet name="header">Id</f:facet>
+			#{item.id}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Name</f:facet>
+			#{item.name}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Prix Unitaire</f:facet>
+			#{initCost.decription}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Description</f:facet>
+			#{imagePath.decription}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Catégorie</f:facet>
+			#{item.product.name}
+	</h:column>
+	<h:column>
+	<f:facet name="header">Actions</f:facet>
+		<h:form>
+			<h:commandButton action="#{itemService.delete(category.id)}" value="Supprimer" />
+			<h:commandButton action="#{itemService.update(category.id)}" value="Modifier" />
+		</h:form>
+	</h:column>
+</h:dataTable>
+</h:body> 
+</html>
