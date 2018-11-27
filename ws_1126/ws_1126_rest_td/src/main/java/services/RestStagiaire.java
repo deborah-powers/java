@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.ws.rs.Consumes;
@@ -15,14 +16,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response.Status;
 
 import org.glassfish.jersey.server.ResourceConfig;
 
+import errors.ErrorMessage;
+import errors.ExceptionNotFound;
 import models.Stagiaire;
 
 @Path ("stagiaires")
-//@Produces (MediaType.APPLICATION_XML)
-// besoin d'une librairie pour le json, jersey-media-json-binding
 @Produces (MediaType.APPLICATION_JSON)
 @Consumes (MediaType.APPLICATION_JSON)
 /*
@@ -58,11 +60,23 @@ public class RestStagiaire extends ResourceConfig {
 	@GET
 	@Path ("{ id }")
 	public Stagiaire getOne (@PathParam ("id") Integer id){
-		Stagiaire stagiaire = dbStagiaire.get (id);
-		return stagiaire;
+		Set<Integer> idList = dbStagiaire.keySet ();
+		if (idList.contains (id)) {
+			Stagiaire stagiaire = dbStagiaire.get (id);
+			return stagiaire;
+		}
+		else {
+			ErrorMessage error = new ErrorMessage ("404", "le stagiaire n°" + id + " n'est pas dans la bdd", "http://localhost:8080/app/rest/stagiaires/" + id, Status.NOT_FOUND);
+			throw new ExceptionNotFound (error);
+		}
 	}
 	@GET // accessible via une requête get
 	public List<Stagiaire> getAll (){
-		return new ArrayList<Stagiaire> (dbStagiaire.values ());
+		List<Stagiaire> stagiaireList = new ArrayList<Stagiaire> (dbStagiaire.values ());
+		if (stagiaireList.size () == 0) {
+			ErrorMessage error = new ErrorMessage ("404", "aucun stagiare dans la bdd", "http://localhost:8080/app/rest/stagiaires", Status.NOT_FOUND);
+			throw new ExceptionNotFound (error);
+		}
+		else return stagiaireList;
 	}
 }
