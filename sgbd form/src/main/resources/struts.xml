@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <!-- internationnalisation -->
+    <constant name="struts.custom.i18n.resources" value="messages" />
+
+    <package name="accueil" extends="struts-default">
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+        <action name="login" class="actions.ActionLogin">
+            <result name="success">/listUser.jsp</result>
+            <result name="input">/index.jsp</result>
+        </action>
+        <action name="updateForm" class="actions.ActionAdmin" method="showUser">
+            <result name="success">/update.jsp</result>
+            <result name="input">/update.jsp</result>
+        </action>
+        <action name="update" class="actions.ActionAdmin">
+            <result name="success">/listUser.jsp</result>
+            <result name="input">/update.jsp</result>
+        </action>
+    </package>
+</struts>
+
