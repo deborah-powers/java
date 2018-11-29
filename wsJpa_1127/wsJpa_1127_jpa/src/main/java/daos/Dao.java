@@ -16,17 +16,23 @@ public class Dao<Obj> {
 	private Class						classe;
 
 	public void modifier (Obj obj){
+		transaction.begin ();
 		manager.merge (obj);
+		transaction.commit ();
 	}
 	public void supprimer (Integer id){
 		Obj obj = recuperer (id);
 		supprimer (obj);
 	}
 	public void supprimer (Obj obj){
+		transaction.begin ();
 		manager.remove (obj);
+		transaction.commit ();
 	}
 	public void creer (Obj obj){
+		transaction.begin ();
 		manager.persist (obj);
+		transaction.commit ();
 	}
 	@SuppressWarnings ("unchecked")
 	public Obj recuperer (Integer id){
@@ -49,10 +55,8 @@ public class Dao<Obj> {
 		factory		= Persistence.createEntityManagerFactory ("wsjpa_1127_jpa");
 		manager		= factory.createEntityManager ();
 		transaction	= manager.getTransaction ();
-		transaction.begin ();
 	}
 	public void fermer (){
-		transaction.commit ();
 		manager.close ();
 		factory.close ();
 	}
